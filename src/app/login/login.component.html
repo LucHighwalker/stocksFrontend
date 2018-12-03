@@ -1,0 +1,23 @@
+<form *ngIf="!loggedIn">
+  <div>
+    <input type="text" name="email" [(ngModel)]="email" type="email" placeholder="email"><br>
+    <input type="text" name="password" [(ngModel)]="password" type="password" placeholder="password"><br>
+    <input *ngIf="showSignup" type="text" name="confPassword" [(ngModel)]="confPassword" type="password" placeholder="confirm password">
+  </div>
+  <br>
+
+  <div *ngIf="!showSignup">
+    <button (click)="login()">login</button>
+    <button (click)="toggleSignup()">signup</button>
+  </div>
+  <div *ngIf="showSignup">
+    <button (click)="signup()">signup</button>
+    <button (click)="toggleSignup()">cancel</button>
+  </div>
+</form>
+
+<button *ngIf="loggedIn" (click)="logout()">logout</button>
+
+<ul *ngIf="loggedIn">
+  <li><a [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >dashboard</a></li>
+</ul>

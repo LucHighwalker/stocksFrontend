@@ -9,12 +9,15 @@ import { LoginComponent } from './login/login.component';
 import { UserService } from '../services/user.service';
 import { LandingComponent } from './landing/landing.component';
 import { CookieService } from 'ngx-cookie-service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { StocksService } from 'src/services/stocks.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    LandingComponent
+    LandingComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,10 +32,15 @@ import { CookieService } from 'ngx-cookie-service';
         path: 'login',
         component: LoginComponent
       },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      }
     ])
   ],
   providers: [
     UserService,
+    StocksService,
     CookieService
   ],
   bootstrap: [AppComponent]

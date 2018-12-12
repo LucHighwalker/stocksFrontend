@@ -13,8 +13,6 @@ export class UserService {
 
   private curUser: {};
 
-  private headers: HttpHeaders = new HttpHeaders();
-
   constructor(private http: HttpClient) {}
 
   getUser(): any {
@@ -29,7 +27,6 @@ export class UserService {
       )
       .subscribe(resp => {
         this.signupMsg.next(resp);
-        this.headers.set('token', resp.token);
       });
   }
 
@@ -40,17 +37,16 @@ export class UserService {
         body
       )
       .subscribe(resp => {
-        console.log(resp);
         this.signupMsg.next(resp);
-        this.headers.set('token', resp.token);
       });
   }
 
-  updateUser() {
-    const head = this.headers;
+  updateUser(token) {
     this.http
       .get<{ signup: string; token: any; error: any }>(
-        'http://localhost:4040/api/auth/getuser', {head}
+        'http://localhost:4040/api/auth/getuser', {
+          headers: new HttpHeaders().set('token', token)
+        }
       )
       .subscribe(resp => {
         this.curUser = resp;

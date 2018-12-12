@@ -37,15 +37,15 @@ export class StocksService {
 
   getStockData(symbol) {
     return new Promise((resolve, reject) => {
-      this.http.get<any>(
-        'http://localhost:4040/api/stocks/' + symbol
-      ).subscribe(resp => {
-        if (resp.error) {
-          reject(resp);
-        } else {
-          resolve(resp);
-        }
-      })
-    })
+      this.http
+        .get<any>('http://localhost:4040/api/stocks/' + symbol)
+        .subscribe(resp => {
+          if (resp.error) {
+            reject(resp);
+          } else {
+            resolve(resp);
+          }
+        });
+    });
   }
 }

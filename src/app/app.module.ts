@@ -11,6 +11,7 @@ import { LandingComponent } from './landing/landing.component';
 import { CookieService } from 'ngx-cookie-service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StocksService } from 'src/services/stocks.service';
+import { InvestmentsService } from 'src/services/investments.service';
 
 @NgModule({
   declarations: [
@@ -39,9 +40,10 @@ import { StocksService } from 'src/services/stocks.service';
     ])
   ],
   providers: [
+    CookieService,
     UserService,
     StocksService,
-    CookieService
+    InvestmentsService
   ],
   bootstrap: [AppComponent]
 })

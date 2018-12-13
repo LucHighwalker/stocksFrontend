@@ -1,3 +1,14 @@
-<p>
-  dashboard works!
-</p>
+<p (click)="toggleForm()">new investment</p>
+
+<div *ngIf="showForm">
+  <form>
+    <div>
+      <input type="text" name="amount" [(ngModel)]="amount" placeholder="amount"><br>
+      <input type="text" name="symbol" [(ngModel)]="amount" placeholder="amount"><br>
+      <input type="text" name="amount" [(ngModel)]="amount" placeholder="amount"><br>
+    </div>
+    <br>
+    <button (click)="invest()">invest</button>
+    <button (click)="toggleForm()">cancel</button>
+  </form>
+</div>

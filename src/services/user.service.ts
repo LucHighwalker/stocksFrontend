@@ -37,7 +37,7 @@ export class UserService {
         body
       )
       .subscribe(resp => {
-        this.signupMsg.next(resp);
+        this.loginMsg.next(resp);
       });
   }
 

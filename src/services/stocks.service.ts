@@ -6,13 +6,13 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class StocksService {
-  public symbols = new Subject<[]>();
+  public symbols = new Subject<{}>();
 
   constructor(private http: HttpClient) {}
 
   getSymbols() {
     this.http
-      .get<[]>('http://localhost:4040/api/stocks/symbols')
+      .get<any>('http://localhost:4040/api/stocks/symbols')
       .subscribe(resp => {
         this.symbols.next(resp);
       });

@@ -10,7 +10,7 @@ export class InvestmentsService {
 
   constructor(private http: HttpClient) {}
 
-  getInvest(id) {
+  getInvestment(id) {
     this.http
       .get('http://localhost:4040/api/invest/' + String(id))
       .subscribe(resp => {
